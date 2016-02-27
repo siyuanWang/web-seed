@@ -1,0 +1,33 @@
+<meta charset="utf-8"/>
+<div style="padding: 15px 0;">
+	<a href="#/user/add" class="btn btn-success"><i class='fa fa-plus-square-o'></i>&nbsp;&nbsp;新增</a>
+</div>
+<table class="table table-bordered datatable" customer-side-data-table class="display" cellspacing="0" width="100%">
+   	<thead>
+    	<tr>
+	        <th>序号</th>
+	        <th>用户名</th>
+	        <th>姓名</th>
+	        <th>电话</th>
+	        <th>email</th>
+	        <th>创建时间</th>
+	        <th>修改时间</th>
+	        <th>操作</th>
+    	</tr>
+   	</thead>
+   	<tbody>
+   		<tr ng-repeat="data in tableData" on-repeat-over>
+   			<td ng-bind="$index+1"></td>
+   			<td ng-bind="data.loginName"></td>
+   			<td ng-bind="data.name"></td>
+   			<td ng-bind="data.phone"></td>
+   			<td ng-bind="data.email"></td>
+   			<td ng-bind="data.createTime"></td>
+   			<td ng-bind="data.updateTime"></td>
+   			<td>
+   				<a href="#/user/upd/{{data.id}}" class="btn btn-warning" uib-popover="修改" popover-trigger='mouseenter'><i class='fa fa-pencil-square-o'></i></a>&nbsp;
+   				<a href="javascript:void(0)" ng-click="openDelModal('/views/sysuser/delete.html')" class="btn btn-danger" uib-popover="删除" popover-trigger='mouseenter'><i class='fa fa-trash-o'></i></a>&nbsp;
+   			</td>
+   		</tr>
+   	</tbody>
+</table>
